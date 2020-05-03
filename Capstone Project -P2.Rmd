@@ -121,12 +121,12 @@ We first take a glimpse at our dataset, after removing schools that have not bee
 ```{r glimpse, echo=TRUE, warning= FALSE, cache= FALSE, cache= FALSE, message=FALSE}
 
 #reading data from inspection reports
-dsib<- read.csv("~/Projects/capstonesecond/dsib.csv")
+dsib<- read.csv("dsib.csv")
 dsib <- dsib %>% as.data.frame
 dsib <- dsib %>% mutate(School.Name= as.character(School.Name))
 
 #reading data from Dubai Private Schools Information released by KHDA
-schooldata <- read.csv("~/Projects/capstonesecond/schooldata.csv")
+schooldata <- read.csv("schooldata.csv")
 schooldata <- schooldata %>% select (-(grades)) %>% select(-School.Name)
 
 schools <- left_join(dsib, schooldata, by=c("Schoolid"= "schoolid"))
